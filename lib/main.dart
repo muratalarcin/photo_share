@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:videoshare/drawable/colors/colors.dart';
 import 'package:videoshare/ui/authentication/login_page.dart';
 
 void main() {
@@ -12,11 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
+      darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
       home: const LoginPage(),
     );
   }

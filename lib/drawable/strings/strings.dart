@@ -4,4 +4,5 @@ class LanguageItems {
   static const passwordTitle = "Şifre";
   static const log_in = "Giriş Yap";
   static const sign_in = "Kayıt Ol";
+  static const authenticatinon_title = "Before After Reus";
 }
