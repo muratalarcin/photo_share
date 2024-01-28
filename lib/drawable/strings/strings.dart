@@ -2,7 +2,8 @@ class LanguageItems {
   static const welcomeTitle = 'Merhaba';
   static const mailTitle = "Mail";
   static const passwordTitle = "Şifre";
-  static const log_in = "Giriş Yap";
-  static const sign_in = "Kayıt Ol";
-  static const authenticatinon_title = "Before After Reus";
+  static const passwordTitleAgain = "Şifreyi Tekrarla";
+  static const logIn = "Giriş Yap";
+  static const signIn = "Kayıt Ol";
+  static const authenticatinonTitle = "Before After Reus";
 }

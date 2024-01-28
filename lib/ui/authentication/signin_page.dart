@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:videoshare/drawable/strings/strings.dart';
-import 'package:videoshare/ui/authentication/signin_page.dart';
+import 'package:videoshare/ui/authentication/login_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SigninPage extends StatefulWidget {
+  const SigninPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SigninPage> createState() => _SigninPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SigninPageState extends State<SigninPage> {
   final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,10 @@ class _LoginPageState extends State<LoginPage> {
             _SpaceSize().spaceShort,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [_LoginButton().logInButton, const SigninNavigateButton()],
+              children: [
+                const SigninNavigateButton(),
+                _signinButton().signInButton,
+              ],
             ),
             Form(
               key: key,
@@ -40,7 +43,9 @@ class _LoginPageState extends State<LoginPage> {
                     _MyFields().emailField,
                     _SpaceSize().fieldSpace,
                     _MyFields().passwordField,
-                    _SpaceSize().spaceLong,
+                    _SpaceSize().fieldSpace,
+                    _MyFields().passwordField,
+                    _SpaceSize().spaceMiddle,
                     ElevatedButton(
                       onPressed: () {
                         if (key.currentState!.validate()) {
@@ -48,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                           // Örnek: Kullanıcı adı ve şifre kontrolü
                         }
                       },
-                      child: const Text(LanguageItems.logIn),
+                      child: const Text(LanguageItems.signIn),
                     ),
                   ],
                 ),
@@ -87,23 +92,25 @@ class SigninNavigateButton extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const SigninPage(),
+            builder: (context) => const LoginPage(),
           ),
         );
       },
       style: ElevatedButton.styleFrom(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(50),
+            topLeft: Radius.circular(50),
           ),
         ),
       ),
-      child: const Text(LanguageItems.signIn),
+      child: const Text(
+        LanguageItems.logIn,
+      ),
     );
   }
 }
 
-class _LoginButton {
+class _signinButton {
   final logInButton = ElevatedButton(
     onPressed: () {},
     style: ElevatedButton.styleFrom(
@@ -112,11 +119,23 @@ class _LoginButton {
           topLeft: Radius.circular(50),
         ),
       ),
-      backgroundColor: Colors.orange,
     ),
     child: const Text(
       LanguageItems.logIn,
     ),
+  );
+
+  final signInButton = ElevatedButton(
+    onPressed: () {},
+    style: ElevatedButton.styleFrom(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(50),
+        ),
+      ),
+      backgroundColor: Colors.orange,
+    ),
+    child: const Text(LanguageItems.signIn),
   );
 }
 
